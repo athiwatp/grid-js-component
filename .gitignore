@@ -37,6 +37,6 @@ jspm_packages
 .node_repl_history
 .vscode
 dist
-demo/**/*.js
-demo/**/index.html
-*.css
+demo/vue.bundle.js
+demo/common.js
+demo/vue/index.js
