@@ -5,11 +5,13 @@ export type GridData = {
 
 export type GridRowData = {
     cells: GridCellData[];
+    style?: string;
 };
 
 export type GridCellData = {
     value: any;
-    component?: string;
+    component?: string | React.ComponentClass<{ data: any }>;
+    style?: string;
 };
 
 import * as Ps from "perfect-scrollbar";
