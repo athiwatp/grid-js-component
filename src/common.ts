@@ -1,6 +1,10 @@
 export type GridData = {
     headers: GridRowData;
     rows: GridRowData[];
+    leftHeaders?: GridRowData;
+    leftRows?: GridRowData[];
+    rightHeaders?: GridRowData;
+    rightRows?: GridRowData[];
 };
 
 export type GridRowData = {
@@ -10,7 +14,9 @@ export type GridRowData = {
 
 export type GridCellData = {
     value: any;
-    component?: string | React.ComponentClass<{ data: any }>;
+    /* tslint:disable:ban-types */
+    component?: string | Function;
+    /* tslint:enable:ban-types */
     style?: string;
 };
 

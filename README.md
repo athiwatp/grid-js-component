@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/npm/dm/grid-js-component.svg)](https://www.npmjs.com/package/grid-js-component)
 
 # grid-js-component
-A reactjs, angular and vuejs grid component.
+A reactjs and vuejs grid component.
 
 #### install
 
@@ -27,6 +27,9 @@ This component should work with `webpack`, and it requires `npm install raw-load
 
 ```ts
 import "grid-js-component/dist/vue";
+```
+
+```html
 <grid :data="data">
 </grid>
 ```
@@ -39,6 +42,9 @@ the source code of the demo: https://github.com/plantain-00/grid-js-component/tr
 
 ```ts
 import { Grid } from "grid-js-component/dist/react";
+```
+
+```html
 <Grid data={data} />
 ```
 
@@ -58,6 +64,10 @@ data | [GridData](#grid-data-structure)[] | the data of the tree
 type GridData = {
     headers: GridRowData;
     rows: GridRowData[];
+    leftHeaders?: GridRowData;
+    leftRows?: GridRowData[];
+    rightHeaders?: GridRowData;
+    rightRows?: GridRowData[];
 };
 
 type GridRowData = {
@@ -67,44 +77,64 @@ type GridRowData = {
 
 type GridCellData = {
     value: any; // the value in the cell
-    component?: string | React.ComponentClass<{ data: any }>; //  if exists, show the component rather than the value in the cell
+    component?: string | Function; //  if exists, show the component rather than the value in the cell
     style?: string; // the class string of the cell, used to set style
 };
 ```
 
 #### general styles
 
-```less
-.grid {
-  border-collapse: collapse;
-  width: 150px;
-}
-
-.grid-head {
-  width: 150px;
-}
-
-.grid-body {
-  height: 100px;
-  width: 150px;
-}
-
-.grid-head-row { }
-.grid-body-row { }
-
-.grid-head-row-cell,
-.grid-body-row-cell {
-  border: 1px solid black;
-  width: 100px;
-  min-width: 100px;
-  height: 20px;
-}
-```
++ grid
++ grid-main
++ grid-main-head
++ grid-main-head-row
++ grid-main-head-row-cell
++ grid-main-body
++ grid-main-body-row
++ grid-main-body-row-cell
++ grid-left
++ grid-left-head
++ grid-left-head-row
++ grid-left-head-row-cell
++ grid-left-body
++ grid-left-body-row
++ grid-left-body-row-cell
++ grid-right
++ grid-right-head
++ grid-right-head-row
++ grid-right-head-row-cell
++ grid-right-body
++ grid-right-body-row
++ grid-right-body-row-cell
 
 #### features
 
 + vuejs component
 + reactjs component
-+ angular component
 + scrollbar
 + custom cell component
++ freeze columns
+
+#### changelogs
+
+##### v2
+
+```bash
+// v1
++ grid
++ grid-head
++ grid-head-row
++ grid-head-row-cell
++ grid-body
++ grid-body-row
++ grid-body-row-cell
+
+// v2
++ grid-main
++ grid-main-head
++ grid-main-head-row
++ grid-main-head-row-cell
++ grid-main-body
++ grid-main-body-row
++ grid-main-body-row-cell
+```
